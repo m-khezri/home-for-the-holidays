@@ -6,7 +6,7 @@
     "email": "Callan@mail.com",
     "relationship": "sister from anotha mother",
     "isAvoiding": true,
-    "uid": "12345"
+    "uid": "cdIedv6wRAWxpcOXRmySHnbpIGw1"
   },
   "friend2": {
     "name": "Jack L.",
@@ -15,7 +15,7 @@
     "email": "Jack@mail.com",
     "relationship": "friend",
     "isAvoiding": false,
-    "uid": "12345"
+    "uid": "cdIedv6wRAWxpcOXRmySHnbpIGw1"
   },
   "friend3": {
     "name": "George H.",
@@ -24,7 +24,7 @@
     "email": "George@mail.com",
     "relationship": "friend",
     "isAvoiding": true,
-    "uid": "12345"
+    "uid": "cdIedv6wRAWxpcOXRmySHnbpIGw1"
   },
   "friend4": {
     "name": "tom C.",
@@ -33,7 +33,7 @@
     "email": "tom@mail.com",
     "relationship": "uncle",
     "isAvoiding": false,
-    "uid": "12345"
+    "uid": "cdIedv6wRAWxpcOXRmySHnbpIGw1"
   },
   "friend5": {
     "name": "Zahra J.",
