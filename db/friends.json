@@ -1,0 +1,47 @@
+{
+  "friend1": {
+    "name": "Callan M.",
+    "address": "1 Main Street, Nashville, TN 37209",
+    "phoneNumber": "1112223333",
+    "email": "Callan@mail.com",
+    "relationship": "sister from anotha mother",
+    "isAvoiding": true,
+    "uid": "12345"
+  },
+  "friend2": {
+    "name": "Jack L.",
+    "address": "251 Menlove Ave, Liverpool, UK",
+    "phoneNumber": "2223334444",
+    "email": "Jack@mail.com",
+    "relationship": "friend",
+    "isAvoiding": false,
+    "uid": "12345"
+  },
+  "friend3": {
+    "name": "George H.",
+    "address": "12 Arnold Grove, Liverpool, UK",
+    "phoneNumber": "3334445555",
+    "email": "George@mail.com",
+    "relationship": "friend",
+    "isAvoiding": true,
+    "uid": "12345"
+  },
+  "friend4": {
+    "name": "tom C.",
+    "address": "20 Forthlin Rd, Liverpool, UK",
+    "phoneNumber": "4440006666",
+    "email": "tom@mail.com",
+    "relationship": "uncle",
+    "isAvoiding": false,
+    "uid": "12345"
+  },
+  "friend5": {
+    "name": "Zahra J.",
+    "address": "10 Admiral Grove, Liverpool, UK",
+    "phoneNumber": "5556667777",
+    "email": "Zahra@mail.com",
+    "relationship": "friend",
+    "isAvoiding": false,
+    "uid": "1234"
+  }
+}

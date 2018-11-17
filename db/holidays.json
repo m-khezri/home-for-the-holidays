@@ -1,0 +1,26 @@
+{
+  "holiday1": {
+    "name": "Thanksgiving",
+    "Date": "11/22/18",
+    "imageUrl": "http://www.todayifoundout.com/wp-content/uploads/2017/11/thanksgiving-turkey-640x427.png",
+    "location": "NSS",
+    "startTime": "11am",
+    "uid": "01"
+  },
+  "holiday2": {
+    "name": "Mardi Gras",
+    "Date": "03/05/19",
+    "imageUrl": "https://thumbs-prod.si-cdn.com/XJ7Ymls72FkfbUl4EBj9QQsbXMI=/800x600/filters:no_upscale()/https://public-media.smithsonianmag.com/filer/81/46/8146d2e3-94a3-4f9c-ab5a-dfaf572e0740/ffewp3.jpg",
+    "location": "N'awlins",
+    "startTime": "6am",
+    "uid": "01"
+  },
+  "holiday3": {
+    "name": "New Year's",
+    "Date": "12/31/18",
+    "imageUrl": "http://almosthomerestaurant.com/wp-content/uploads/2017/12/Screen-Shot-2017-12-07-at-9.58.26-AM.png",
+    "location": "Dylan's House",
+    "startTime": "10pm",
+    "uid": "02"
+  }
+}
