@@ -33,9 +33,9 @@ const getSingleFriend = (e) => {
 
 const buildDropdown = (friendsArray) => {
   let dropdown = `
-  <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown button
+  <div class="dropdown m-5">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Friends List
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">`;
   friendsArray.forEach((friend) => {
