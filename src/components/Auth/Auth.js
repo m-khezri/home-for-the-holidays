@@ -1,14 +1,15 @@
-import './Auth.scss';
 import $ from 'jquery';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import googleImage from './sign-in-with-google.png';
 
-const loginbutton = () => {
+import googleImage from './sign-in-with-google.png';
+import './Auth.scss';
+
+const loginButton = () => {
   const domString = `
-  <a href="#" id="google-auth">
-  <img src="${googleImage}">
-  </a>
+    <button id="google-auth" class="btn btn-secondary">
+      <img src="${googleImage}"/>
+    </button>
   `;
   $('#auth').html(domString);
   $('#google-auth').on('click', () => {
@@ -17,4 +18,4 @@ const loginbutton = () => {
   });
 };
 
-export default loginbutton;
+export default loginButton;

@@ -6,9 +6,8 @@ const checkLoginStatus = (initializeFriendsPage) => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       $('#friends').hide();
-      $('google-auth').hide();
       $('#holidays').show();
-      $('#auths').hide();
+      $('#auth').hide();
       $('#navbar-button-auth').hide();
       $('#navbar-button-holidays').show();
       $('#navbar-button-friends').show();
@@ -17,7 +16,7 @@ const checkLoginStatus = (initializeFriendsPage) => {
     } else {
       $('#friends').hide();
       $('#holidays').hide();
-      $('#auths').show();
+      $('#auth').show();
       $('#navbar-button-auth').show();
       $('#navbar-button-holidays').hide();
       $('#navbar-button-friends').hide();
