@@ -2,7 +2,7 @@ import axios from 'axios';
 import $ from 'jquery';
 import apiKeys from '../../../db/apiKeys';
 import authHelpers from '../../helpers/authHelpers';
-
+import friendsData from '../../helpers/data/friendsData';
 
 const printStringFriend = (friend) => {
   const friendString = `
@@ -21,14 +21,12 @@ const printStringFriend = (friend) => {
 const getSingleFriend = (e) => {
   // firebase id
   const friendId = e.target.dataset.dropdownId;
-  axios.get(`${apiKeys.firebaseKeys.databaseURL}/friends/${friendId}.json`)
-    .then((result) => {
-      const SingleFriend = result.data;
-      SingleFriend.id = friendId;
-      printStringFriend(SingleFriend);
+  friendsData.getSingleFriend(friendId) // from the friendsData.js
+    .then((singleFriend) => {
+      printStringFriend(singleFriend);
     })
     .catch((error) => {
-      console.log('error in getting friend', error);
+      console.error('error in getting one friend', error);
     });
 };
 
@@ -54,21 +52,6 @@ const buildDropdown = (friendsArray) => {
 
 const friendsPage = () => {
   const uid = authHelpers.getCurrentUid();
-  axios.get(`${apiKeys.firebaseKeys.databaseURL}/friends.json?orderBy="uid"&equalTo="${uid}"`)
-    .then((results) => {
-      const friendObject = results.data;
-      const friendsArray = [];
-      if (friendObject != null) {
-        Object.keys(friendObject).forEach((friendId) => {
-          friendObject[friendId].id = friendId;
-          friendsArray.push(friendObject[friendId]);
-        });
-      }
-      buildDropdown(friendsArray);
-    })
-    .catch((error) => {
-      console.error('error in getting friends', error);
-    });
 };
 
 
