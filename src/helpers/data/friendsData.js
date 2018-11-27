@@ -35,14 +35,17 @@ const getSingleFriend = friendId => new Promise((resolve, reject) => {
 
 const deleteFriend = friendId => axios.delete(`${firebaseUrl}/friends/${friendId}.json`);
 
-const addNewFriend = friendObject => axios.post(`${firebaseUrl}/friends.json`, JSON.stringify(friendObject));
+const getNewFriend = friendObject => axios.post(`${firebaseUrl}/friends.json`, JSON.stringify(friendObject));
 
 const updateFriend = (friendObject, friendId) => axios.put(`${firebaseUrl}/friends/${friendId}.json`, JSON.stringify(friendObject));
+
+const updatedIsAvoiding = (friendId, isAvoiding) => axios.patch(`${firebaseUrl}/friends/${friendId}.json`, { isAvoiding });
 
 export default {
   getAllFriends,
   getSingleFriend,
   deleteFriend,
-  addNewFriend,
+  getNewFriend,
   updateFriend,
+  updatedIsAvoiding,
 };
