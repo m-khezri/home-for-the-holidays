@@ -4,29 +4,28 @@ import friendsData from '../../helpers/data/friendsData';
 import initializeFriendsPage from '../FriendsPage/friendsPage';
 
 const formBuilder = (friend) => {
-  const form = `
-  <div class="form-group">
-    <label for="form-friend-name">Name:</label>
-    <input type="text" class="form-control" value="${friend.name}" id="form-friend-name" placeholder="John Smith">
-  </div>
-  <div class="form-group">
-    <label for="form-friend-address">Address:</label>
-    <input type="text" class="form-control" value="${friend.address}" id="form-friend-address" placeholder="500 Interstate Blvd S">
-  </div>
-  <div class="form-group">
-    <label for="form-friend-email">Email:</label>
-    <input type="email" class="form-control" value="${friend.email}" id="form-friend-email" placeholder="fake@person.com">
-  </div>
-  <div class="form-group">
-    <label for="form-friend-phone">Phone Number:</label>
-    <input type="text" class="form-control" value="${friend.phoneNumber}" id="form-friend-phone" placeholder="555-867-5309">
-  </div>
-  <div class="form-group">
-    <label for="form-friend-relationship">Relationship:</label>
-    <input type="text" class="form-control" value="${friend.relationship}" id="form-friend-relationship" placeholder="I don't know, it's weird.">
-  </div>
-  `;
-  return form;
+  const formString = `
+    <div class="form-group">
+      <label for="form-friend-name">Name:</label>
+      <input type="text" class="form-control" value="${friend.name}" id="form-friend-name" placeholder="George Washington">
+    </div>
+    <div class="form-group">
+      <label for="form-friend-address">Address:</label>
+      <input type="text" class="form-control" value="${friend.address}" id="form-friend-address" placeholder="30 Rockefellar Plaza, New York, NY">
+    </div>
+    <div class="form-group">
+      <label for="form-friend-email">Email:</label>
+      <input type="email" class="form-control" value="${friend.email}" id="form-friend-email" placeholder="test@email.com">
+    </div>
+    <div class="form-group">
+      <label for="form-friend-phone">Phone Number:</label>
+      <input type="text" class="form-control" value="${friend.phoneNumber}" id="form-friend-phone" placeholder="123-456-7890">
+    </div>
+    <div class="form-group">
+      <label for="form-friend-relationship">Relationship:</label>
+      <input type="text" class="form-control" value="${friend.relationship}" id="form-friend-relationship" placeholder="sister">
+    </div>`;
+  return formString;
 };
 
 const gettingFriendFromForm = () => {
@@ -34,8 +33,8 @@ const gettingFriendFromForm = () => {
     name: $('#form-friend-name').val(),
     address: $('#form-friend-address').val(),
     email: $('#form-friend-email').val(),
-    relationship: $('#form-friend-relationship').val(),
     phoneNumber: $('#form-friend-phone').val(),
+    relationship: $('#form-friend-relationship').val(),
     isAvoiding: false,
     uid: authHelpers.getCurrentUid(),
   };
@@ -50,40 +49,39 @@ const buildAddForm = () => {
     email: '',
     relationship: '',
   };
-
   let domString = '<h2>Add New Friend</h2>';
   domString += formBuilder(emptyFriend);
-  domString += '<button id="add-friend">Save New Friend</button>';
+  domString += '<button class="btn btn-primary" id="add-friend">Save New Friend</button>';
   $('#add-edit-friend').html(domString).show();
   $('#friends').hide();
 };
 
 const addNewFriend = () => {
   const newFriend = gettingFriendFromForm();
-  friendsData.addNewFriend(newFriend)
+  friendsData.getNewFriend(newFriend)
     .then(() => {
       $('#add-edit-friend').html('').hide();
       $('#friends').show();
       initializeFriendsPage();
     })
     .catch((error) => {
-      console.error('error', error);
+      console.error(error);
     });
 };
 
-// Edit
+//  Edit (1 func building form; 1 func going out to firebase)
 const showEditForm = (e) => {
   const idToEdit = e.target.dataset.editId;
   friendsData.getSingleFriend(idToEdit)
     .then((singleFriend) => {
       let domString = '<h2>Edit Friend</h2>';
       domString += formBuilder(singleFriend);
-      domString += `<button id="edit-friend" data-single-edit-id=${singleFriend.id}>Save Friend</button>`;
+      domString += `<button class="btn btn-primary" id="edit-friend" data-single-edit-id=${singleFriend.id}>Save Friend</button>`;
       $('#add-edit-friend').html(domString).show();
       $('#friends').hide();
     })
     .catch((error) => {
-      console.error('error in getting single for edit', error);
+      console.error('error in showEditForm', error);
     });
 };
 
@@ -98,11 +96,12 @@ const updateFriend = (e) => {
       initializeFriendsPage();
     })
     .catch((error) => {
-      console.error('error', error);
+      console.error(error);
     });
 };
 
-
+// since we are adding event to the body, we are able to put the event
+// listener on this page, not where button is created aka printed
 $('body').on('click', '#add-friend', addNewFriend);
 $('body').on('click', '.edit-btn', showEditForm);
 $('body').on('click', '#edit-friend', updateFriend);
